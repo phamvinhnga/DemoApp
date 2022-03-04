@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_LEARN\\DemoABC\\DemoABC\\DemoABC.csproj": {}
+    "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj": {}
   },
   "projects": {
-    "D:\\_LEARN\\DemoABC\\DemoABC\\DemoABC.csproj": {
+    "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_LEARN\\DemoABC\\DemoABC\\DemoABC.csproj",
+        "projectUniqueName": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj",
         "projectName": "DemoABC",
-        "projectPath": "D:\\_LEARN\\DemoABC\\DemoABC\\DemoABC.csproj",
+        "projectPath": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj",
         "packagesPath": "C:\\Users\\HuyenDuc\\.nuget\\packages\\",
-        "outputPath": "D:\\_LEARN\\DemoABC\\DemoABC\\obj\\",
+        "outputPath": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
