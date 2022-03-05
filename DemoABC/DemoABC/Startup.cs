@@ -55,6 +55,9 @@ namespace DemoABC
                      }
                 });
             });
+
+            //config unit of work
+            //services.AddScoped<InterfaceOfUoWDBContext, UoWDBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
