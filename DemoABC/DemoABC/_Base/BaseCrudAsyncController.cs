@@ -7,21 +7,35 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Base
 {
+   
     [ApiController]
     [Route("api/[controller]/[action]")]
-
-    public class BaseCrudAsyncController<TEntity, TEntityInputDto, TEntityOutputDto> : Controller 
-        where TEntity : class
-        where TEntityInputDto : class 
-        where TEntityOutputDto : class
+    public class BaseCrudAsyncController<TEntity, TEntityInputDto, TEntityOutputDto, TPrimaryKey> : Controller 
+        where TEntity : IEntity<TPrimaryKey>
+        where TEntityInputDto : IEntityDto<TPrimaryKey>
+        where TEntityOutputDto : IEntityDto<TPrimaryKey>
+        where TPrimaryKey : struct
     {
-        private readonly IRepository<TEntity> _repository;
+        private readonly IRepository<TEntity, TPrimaryKey> _repository;
         
         public BaseCrudAsyncController(
-            IRepository<TEntity> repository
+            IRepository<TEntity, TPrimaryKey> repository
         )
         {
             _repository = repository;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TEntityOutputDto>> GetAsync(TPrimaryKey id)
+        {
+            var entity = await _repository.GetAsync(id);
+
+            if (entity == null)
+            {
+                return NotFound($"Can't find Id { id }");
+            }
+
+            return entity.JsonMapTo<TEntityOutputDto>();
         }
 
         [HttpGet]
@@ -41,15 +55,33 @@ namespace DemoABC.Base
         }
 
         [HttpPut]
-        public virtual async Task UpdateAsync([FromBody] TEntityInputDto input)
+        public virtual async Task<IActionResult> UpdateAsync([FromBody] TEntityInputDto input)
         {
+            var entity = await _repository.GetAsync(input.Id);
+
+            if (entity == null)
+            {
+                return NotFound($"Can't find Id { input }");
+            }
+
             await _repository.UpdateAsync(input.JsonMapTo<TEntity>());
+
+            return NoContent();
         }
 
-        [HttpDelete]
-        public virtual async Task DeleteAsync([FromBody] TEntityInputDto input)
+        [HttpDelete("{id}")]
+        public virtual async Task<IActionResult> DeleteAsync(TPrimaryKey id)
         {
-            await _repository.DeleteAsync(input.JsonMapTo<TEntity>());
+            var entity = await _repository.GetAsync(id);
+
+            if (entity == null)
+            {
+                return NotFound($"Can't find Id { id }");
+            }
+
+            await _repository.DeleteAsync(id);
+
+            return NoContent();
         }
     }
 }

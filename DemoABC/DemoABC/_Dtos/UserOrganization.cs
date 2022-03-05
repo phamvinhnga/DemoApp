@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DemoABC.Base.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DemoABC.Dtos
 {
-    public class UserOrganizationDto
+    public class UserOrganizationDto : IEntityDto<Guid>
     {
         public Guid Id { get; set; }
 

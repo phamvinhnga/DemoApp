@@ -1,4 +1,5 @@
-﻿using DemoABC.EntityFramework.Entities;
+﻿using DemoABC.Base.interfaces;
+using DemoABC.EntityFramework.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Dtos
 {
-    public class OrganizationDto
+    public class OrganizationDto : IEntityDto<Guid>
     {
         public Guid Id { get; set; }
 

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using DemoABC.Base.interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoABC.EntityFramework.Entities
 {
     [Table("UserOrganizations", Schema = "dbo")]
-    public class UserOrganization
-    {
+    public class UserOrganization : IEntity<Guid>
+    { 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }

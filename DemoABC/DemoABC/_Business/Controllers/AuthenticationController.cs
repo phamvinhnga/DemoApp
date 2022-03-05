@@ -14,16 +14,15 @@ namespace DemoABC.Business.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class AbcController : ControllerBase
+    public class TestController : ControllerBase
     {
-        public AbcController(IHttpContextAccessor httpContextAccessor)
-        {
-        }
-
         [HttpPost]
-        public void Abc()
+        public IActionResult Abc()
         {
-
+            if (true)
+            {
+                return BadRequest("a");
+            }
         }
     }
 

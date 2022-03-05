@@ -13,9 +13,9 @@ namespace DemoABC.Business.Controllers
 
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class TitleController : BaseCrudAsyncController<Title, TitleInputDto, TitleOutputDto>
+    public class TitleController : BaseCrudAsyncController<Title, TitleInputDto, TitleOutputDto, Guid>
     {
-        public TitleController(IRepository<Title> repository) : base(repository)
+        public TitleController(IRepository<Title, Guid> repository) : base(repository)
         {
         }
     }
