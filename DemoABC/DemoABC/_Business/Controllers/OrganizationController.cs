@@ -13,9 +13,9 @@ namespace DemoABC.Business.Controllers
 
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class OrganizationController : BaseCrudAsyncController<Organization, OrganizationInputDto, OrganizationOutputDto>
+    public class OrganizationController : BaseCrudAsyncController<Organization, OrganizationInputDto, OrganizationOutputDto, Guid>
     {
-        public OrganizationController(IRepository<Organization> repository) : base(repository)
+        public OrganizationController(IRepository<Organization, Guid> repository) : base(repository)
         {
         }
     }

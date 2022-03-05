@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoABC.Base.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace DemoABC.EntityFramework.Entities
 {
     [Table("Titles", Schema = "dbo")]
-    public class Title
+    public class Title : IEntity<Guid>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

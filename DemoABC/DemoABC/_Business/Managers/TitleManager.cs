@@ -13,12 +13,12 @@ namespace DemoABC.Business.Managers
 {
     public class TitleManager
     {
-        private readonly IRepository<Title> _titleRepository;
-        private readonly IRepository<Organization> _organizationRepository;
+        private readonly IRepository<Title, Guid> _titleRepository;
+        private readonly IRepository<Organization, Guid> _organizationRepository;
 
         public TitleManager(
-            IRepository<Title> titleRepository,
-            IRepository<Organization> organizationRepository
+            IRepository<Title, Guid> titleRepository,
+            IRepository<Organization, Guid> organizationRepository
         )
         {
             _titleRepository = titleRepository;
