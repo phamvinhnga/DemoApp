@@ -1,27 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\DemoABC.csproj": {}
+    "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj": {}
   },
   "projects": {
-    "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\DemoABC.csproj": {
+    "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\DemoABC.csproj",
+        "projectUniqueName": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj",
         "projectName": "DemoABC",
-        "projectPath": "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\DemoABC.csproj",
-        "packagesPath": "D:\\Users\\Quang\\.nuget\\packages\\",
-        "outputPath": "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\obj\\",
+        "projectPath": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj",
+        "packagesPath": "C:\\Users\\HuyenDuc\\.nuget\\packages\\",
+        "outputPath": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "D:\\Users\\Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "D:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\HuyenDuc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "D:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,9 +73,9 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
-            "Serilog.AspNetCore": {
+            "Serilog": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[2.10.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -99,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
