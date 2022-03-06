@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DemoABC.Exceptions;
+using Microsoft.AspNetCore.Http;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace DemoABC.Middlewares
@@ -14,9 +17,13 @@ namespace DemoABC.Middlewares
             {
                 await next(context);
             }
-            catch(Exception ex)
+            catch(NotAllowSpecialCharaterException ex)
             {
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
+                await context.Response.WriteAsJsonAsync(ex.Message);
+
+                Log.Error(ex.Message);
             }
         }
     }

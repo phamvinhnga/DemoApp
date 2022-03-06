@@ -1,7 +1,9 @@
 ﻿using DemoABC.Base;
+using DemoABC.Base.interfaces;
 using DemoABC.Business.Managers;
 using DemoABC.Dtos;
 using DemoABC.EntityFramework.Entities;
+using DemoABC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,13 +18,18 @@ namespace DemoABC.Business.Controllers
     [Route("api/[controller]/[action]")]
     public class TestController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult Abc()
+        private readonly IRepository<Organization, Guid> _repository;
+
+        public TestController(IRepository<Organization, Guid> repository)
         {
-            if (true)
-            {
-                return BadRequest("a");
-            }
+            _repository = repository;
+        }
+
+        [HttpPost]
+        [NotAllowSpecialCharacters("CodeValue")]
+        public IActionResult Abc([FromBody] OrganizationInputDto input)
+        {
+            throw new Exception("TINH TOAN ABC");
         }
     }
 

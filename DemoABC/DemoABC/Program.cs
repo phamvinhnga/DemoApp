@@ -15,7 +15,7 @@ namespace DemoABC
         {
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .Enrich.FromLogContext()                        
+            .Enrich.FromLogContext()
             .WriteTo.Console(/*outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {CorrelationId} {Level:u3}] {Message:lj}{NewLine}{Exception}"*/)
             .WriteTo.File(
                 new JsonFormatter(),
@@ -43,10 +43,9 @@ namespace DemoABC
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseSerilog();
                 });
     }
 }

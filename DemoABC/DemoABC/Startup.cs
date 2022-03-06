@@ -1,4 +1,5 @@
 using DemoABC.EntityFramework.Entities;
+using DemoABC.Filters;
 using DemoABC.Middlewares;
 using DemoABC.Services;
 using Microsoft.AspNetCore.Builder;
@@ -28,6 +29,7 @@ namespace DemoABC
             services.AddJwtRegister(Configuration);
             services.AddManagerRegister(Configuration);
             services.AddControllers();
+         
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoABC", Version = "v1" });
@@ -63,8 +65,6 @@ namespace DemoABC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseMiddleware<ExceptionHandlerMiddleware>();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -78,6 +78,8 @@ namespace DemoABC
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

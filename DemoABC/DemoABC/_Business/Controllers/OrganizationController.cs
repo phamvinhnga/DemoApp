@@ -2,6 +2,7 @@
 using DemoABC.Base.interfaces;
 using DemoABC.Dtos;
 using DemoABC.EntityFramework.Entities;
+using DemoABC.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,18 @@ namespace DemoABC.Business.Controllers
     {
         public OrganizationController(IRepository<Organization, Guid> repository) : base(repository)
         {
+        }
+
+        [NotAllowSpecialCharacters("CodeValue")]
+        public override Task<OrganizationOutputDto> CreateAsync([FromBody] OrganizationInputDto input)
+        {
+            return base.CreateAsync(input);
+        }
+
+        [NotAllowSpecialCharacters("CodeValue")]
+        public override Task<IActionResult> UpdateAsync([FromBody] OrganizationInputDto input)
+        {
+            return base.UpdateAsync(input);
         }
     }
 }

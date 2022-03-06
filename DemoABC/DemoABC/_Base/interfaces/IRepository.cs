@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Base.interfaces
 {
-    public interface IRepository<TEntity, TPrimaryKey> where TEntity : IEntity<TPrimaryKey> where TPrimaryKey : struct
+    public interface IRepository<TEntity, TPrimaryKey> where TEntity : class where TPrimaryKey : struct
     {
         IQueryable<TEntity> Query { get; }
 
@@ -19,6 +19,6 @@ namespace DemoABC.Base.interfaces
 
         Task DeleteAsync(TPrimaryKey entity);
 
-        Task Save();
+        Task SaveAsync();
     }
 }
