@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Dtos
 {
-    public class TitleDto : IEntityDto<Guid>
+    public class TitleDto : EntityDto<Guid>
     {
-        public Guid Id { get; set; }
-
         public string CodeValue { get; set; }
 
         public string Name { get; set; }

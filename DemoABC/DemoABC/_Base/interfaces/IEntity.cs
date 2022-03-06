@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Base.interfaces
 {
+    public class Entity<TPrimaryKey> : IEntity<TPrimaryKey> where TPrimaryKey : struct
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public TPrimaryKey Id { get; set; }
+    }
+
     public interface IEntity<TPrimaryKey> where TPrimaryKey : struct
     {
         [Key]

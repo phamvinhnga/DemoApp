@@ -11,9 +11,9 @@ namespace DemoABC.Base
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class BaseCrudAsyncController<TEntity, TEntityInputDto, TEntityOutputDto, TPrimaryKey> : Controller 
-        where TEntity : class
-        where TEntityInputDto : IEntityDto<TPrimaryKey>
-        where TEntityOutputDto : IEntityDto<TPrimaryKey>
+        where TEntity : Entity<TPrimaryKey>
+        where TEntityInputDto : EntityDto<TPrimaryKey>
+        where TEntityOutputDto : EntityDto<TPrimaryKey>
         where TPrimaryKey : struct
     {
         private readonly IRepository<TEntity, TPrimaryKey> _repository;

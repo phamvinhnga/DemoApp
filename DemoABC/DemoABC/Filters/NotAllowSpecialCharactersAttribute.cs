@@ -13,7 +13,7 @@ namespace DemoABC.Filters
     public class NotAllowSpecialCharactersAttribute : ActionFilterAttribute
     {
         private readonly string _property;
-        private readonly Regex _charSet = new Regex("^[a-zA-Z0-9 ]*$");
+        private readonly Regex _charSet = new Regex("[^A-Za-z0-9]");
 
         public NotAllowSpecialCharactersAttribute(
             string property
@@ -27,7 +27,7 @@ namespace DemoABC.Filters
             var input = context.ActionArguments.First().Value;
             var value = input.GetType().GetProperty(_property).GetValue(input, null).ToString();
 
-            if (!_charSet.IsMatch(value)) {
+            if (_charSet.IsMatch(value)) {
                 throw new NotAllowSpecialCharaterException($"Property { _property } has special character.");
             }
 

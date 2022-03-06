@@ -6,12 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DemoABC.EntityFramework.Entities
 {
     [Table("UserOrganizations", Schema = "dbo")]
-    public class UserOrganization : IEntity<Guid>
+    public class UserOrganization : Entity<Guid>
     { 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
         public Guid OrganizationId { get; set; }
 
         public Guid TitleId { get; set; }

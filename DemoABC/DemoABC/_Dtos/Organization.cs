@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace DemoABC.Dtos
 {
-    public class OrganizationDto : IEntityDto<Guid>
+    public class OrganizationDto : EntityDto<Guid>
     {
-        public Guid Id { get; set; }
-
         public string CodeValue { get; set; }
 
         public string Name { get; set; }

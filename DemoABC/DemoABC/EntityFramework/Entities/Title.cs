@@ -9,12 +9,8 @@ using System.Threading.Tasks;
 namespace DemoABC.EntityFramework.Entities
 {
     [Table("Titles", Schema = "dbo")]
-    public class Title : IEntity<Guid>
+    public class Title : Entity<Guid>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
         public string CodeValue { get; set; }
 
         public string Name { get; set; }

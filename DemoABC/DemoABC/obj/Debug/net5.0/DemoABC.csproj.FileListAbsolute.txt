@@ -174,3 +174,4 @@ D:\_LEARN\ABC\DemoABC\DemoABC\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 D:\_LEARN\ABC\DemoABC\DemoABC\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 D:\_LEARN\ABC\DemoABC\DemoABC\bin\Debug\net5.0\Serilog.Sinks.File.dll
 D:\_LEARN\ABC\DemoABC\DemoABC\bin\Debug\net5.0\Serilog.Sinks.RollingFile.dll
+D:\_LEARN\ABC\DemoABC\DemoABC\bin\Debug\net5.0\libman.json
