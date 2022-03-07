@@ -19,7 +19,7 @@ namespace DemoABC
             .WriteTo.Console(/*outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {CorrelationId} {Level:u3}] {Message:lj}{NewLine}{Exception}"*/)
             .WriteTo.File(
                 new JsonFormatter(),
-                "../DemoLog.json",
+                $"./App_Data/log.json",
                 fileSizeLimitBytes: 1_000_000,
                 rollOnFileSizeLimit: true,
                 shared: true,
