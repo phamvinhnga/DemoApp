@@ -18,6 +18,7 @@ namespace DemoABC.Services
 
             services.AddTransient<TokenManager>(); 
             services.AddTransient<RegiterManager>(); 
+            services.AddTransient<OrganizationManager>(); 
 
             services.AddTransient<IRepository<Organization, Guid>, Repository<Organization, Guid>>(); 
             services.AddTransient<IRepository<UserOrganization, Guid>, Repository<UserOrganization, Guid>>(); 

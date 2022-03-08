@@ -24,4 +24,9 @@ namespace DemoABC.Dtos
 
         public virtual IEnumerable<UserOrganization> UserOrganizations { get; set; }
     }
+
+    public class TitleOrganizationInputDto : EntityDto<Guid>
+    {
+        public List<TitleInputDto> ListTitle { get; set; }
+    }
 }

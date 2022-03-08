@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OSNemrKh54Gijjz+wPu5vTYD8OOt7ApqnC6IhteXwq7He4JfeL5tAESNV2U7nouv85Tw7rKU5ySFURs3zSE42A==",
+  "dgSpecHash": "hxfLLCwGw2zBAoQ3pkOGjJQ96zCWpGDi7krM9cUVUNJG48+Jek1xHPcdJaW5D3f49JLwxaVB/CLKpk322SYIjQ==",
   "success": true,
   "projectFilePath": "D:\\_LEARN\\ABC\\DemoABC\\DemoABC\\DemoABC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\HuyenDuc\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\HuyenDuc\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\HuyenDuc\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.6\\microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512",
     "C:\\Users\\HuyenDuc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",

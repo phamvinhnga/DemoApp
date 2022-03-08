@@ -1,5 +1,6 @@
 ﻿using DemoABC.Base;
 using DemoABC.Base.interfaces;
+using DemoABC.Business.Managers;
 using DemoABC.Dtos;
 using DemoABC.EntityFramework.Entities;
 using DemoABC.Filters;
@@ -16,8 +17,13 @@ namespace DemoABC.Business.Controllers
     [Route("api/[controller]/[action]")]
     public class OrganizationController : BaseCrudAsyncController<Organization, OrganizationInputDto, OrganizationOutputDto, Guid>
     {
-        public OrganizationController(IRepository<Organization, Guid> repository) : base(repository)
+        private readonly OrganizationManager _organizationManager;
+
+        public OrganizationController(
+            IRepository<Organization, Guid> repository,
+            OrganizationManager organizationManager) : base(repository)
         {
+            _organizationManager = organizationManager;
         }
 
         [NotAllowSpecialCharacters("CodeValue")]
@@ -30,6 +36,12 @@ namespace DemoABC.Business.Controllers
         public override Task<IActionResult> UpdateAsync([FromBody] OrganizationInputDto input)
         {
             return base.UpdateAsync(input);
+        }
+
+        [HttpPut]
+        public Task UpdateTitleOrganizationAsync([FromBody] TitleOrganizationInputDto input)
+        {
+            return _organizationManager.UpdateTitleOrganizationAsync(input);
         }
     }
 }
