@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "B9pmS1xcPVG5xxc/PJXHMDQrVh/8Z/F8/lA9OWo+5LcdLBD57XkzGR505tyHUhi3u1GSdURVHf3B8hpV9LB2gQ==",
+  "dgSpecHash": "DHeCLlrnzNqcY78upfjGo9mZ+4em7hAY5zPm7MfVBbTsCEhHmmC+vXk1UNy7Er1w0pKeGGQOHC3nYOfnuNZMXA==",
   "success": true,
   "projectFilePath": "C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\DemoABC.csproj",
   "expectedPackageFiles": [
+    "D:\\Users\\Quang\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "D:\\Users\\Quang\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "D:\\Users\\Quang\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.6\\microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512",
     "D:\\Users\\Quang\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
@@ -169,5 +170,12 @@
     "D:\\Users\\Quang\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "D:\\Users\\Quang\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\infodation\\DemoApp\\DemoABC\\DemoABC\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

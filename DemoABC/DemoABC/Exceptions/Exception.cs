@@ -9,6 +9,19 @@ namespace DemoABC.Exceptions
     {
         public NotAllowSpecialCharaterException(string message) : base(message)
         {
+        }       
+    }
+
+    public class RegisterException : Exception
+    {
+        public RegisterException(string message) : base(message)
+        {
+        }
+    }
+    public class LoginException : Exception
+    {
+        public LoginException(string message) : base(message)
+        {
         }
     }
 }

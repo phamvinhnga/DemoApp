@@ -3,12 +3,14 @@ using DemoABC.Base.interfaces;
 using DemoABC.Business.Managers;
 using DemoABC.Dtos;
 using DemoABC.EntityFramework.Entities;
+using DemoABC.Exceptions;
 using DemoABC.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Threading.Tasks;
 
@@ -16,6 +18,7 @@ namespace DemoABC.Business.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
+    [Authorize]
     public class TestController : ControllerBase
     {
         private readonly IRepository<Organization, Guid> _repository;
@@ -29,7 +32,8 @@ namespace DemoABC.Business.Controllers
         [NotAllowSpecialCharacters("CodeValue")]
         public IActionResult Abc([FromBody] OrganizationInputDto input)
         {
-            throw new Exception("TINH TOAN ABC");
+            var p = User;
+            return null;
         }
     }
 
@@ -40,7 +44,6 @@ namespace DemoABC.Business.Controllers
         private readonly TokenManager _tokenManager;
         private readonly SignInManager<User> _signInManager;
         private readonly RegiterManager _regiterManager;
-        private readonly ILogger _logger;
 
         public AuthenticationController(
             SignInManager<User> signInManager,
@@ -52,29 +55,26 @@ namespace DemoABC.Business.Controllers
             _tokenManager = tokenManager;
             _signInManager = signInManager;
             _regiterManager = regiterManager;
-            _logger = loggerFactory.CreateLogger<AuthenticationController>();
         }
 
         [HttpPost]
         public async Task<ActionResult<AuthenticateOutputDto>> LoginAsync([FromBody] AuthenticateDto input)
         {
             var result = await _signInManager.PasswordSignInAsync(input.UserName, input.Password, false, lockoutOnFailure: true);
- 
-            if (result.IsLockedOut)
-            {
-                _logger.LogWarning("User account locked out.");
-                return null;
-            }
 
             if (!result.Succeeded)
             {
-                _logger.LogWarning("Incorrect account or password");
-                return null;
-            }
+                if (result.IsLockedOut)
+                {
+                    throw new LoginException("User account locked out.");
+                }
 
+                throw new LoginException("Incorrect account or password");
+            }
+            
             var output = await _tokenManager.BuildToken(input.UserName);
 
-            _logger.LogInformation(1, "User logged in.");
+            Log.Information("User logged in.");
 
             return output;
         }
@@ -86,11 +86,7 @@ namespace DemoABC.Business.Controllers
             
             if (!result.Succeeded)
             {
-                foreach (var item in result.Errors)
-                {
-                    _logger.LogWarning(item.Description);
-                }
-                throw new Exception();
+                throw new RegisterException(result.Errors.ConvertToJson());
             }
 
             return result.JsonMapTo<RegisterUserOutputDto>();
